@@ -9,7 +9,7 @@ import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements Runnable {
 	//SCREEN SETTINGS
 	final int originalTileSize = 16;
 	final int scale = 3;
@@ -38,7 +38,12 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	//Entity and Object
 	public Player player = new Player(this, keyH);
-	public SuperObject obj[] = new SuperObject[10]; 
+	public SuperObject obj[] = new SuperObject[10];
+
+	//GAME STATE
+	public int gameState;
+	public final int playState = 1;
+	public final int pauseState = 2;
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHight));
@@ -51,6 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public void setupGame() {
 		aSetter.setObject();
 		playMusic(0);
+		gameState = playState;
 	}
 	
 	public void startGameThread() {
@@ -78,7 +84,12 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	
 	public void update() {
-		player.update();
+		if(gameState == playState) {
+			player.update();
+		} else {
+			//@ToDo
+		}
+
 	}
 	
 	public void paintComponent(Graphics g) {
