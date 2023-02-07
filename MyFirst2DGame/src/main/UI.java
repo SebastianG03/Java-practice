@@ -36,11 +36,11 @@ public class UI {
 	public void draw(Graphics2D g2) {
 
 		this.g2 = g2;
-		g2.setFont(arial_40);
+		g2.setFont(arial_30);
 		g2.setColor(Color.WHITE);
 
 		if (gp.gameState == gp.playState) {
-			//todo
+//			@TODO
 		} else {
 			drawPauseScreen();
 		}
@@ -49,8 +49,8 @@ public class UI {
 	public void drawPauseScreen() {
 
 		String text = "PAUSED";
-		int x;
-		int y = gp.screenHeight / 2;
+		int x = getPauseTextPosition(text);
+		int y = gp.screenHight / 2;
 
 		g2.drawString(text, x, y);
 
