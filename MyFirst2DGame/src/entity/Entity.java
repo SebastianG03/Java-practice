@@ -6,7 +6,8 @@ import main.UtilityTool;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+
+import static javax.imageio.ImageIO.*;
 
 public class Entity {
 	public int worldX, worldY;
@@ -25,6 +26,14 @@ public class Entity {
 
 	public Entity(GamePanel gp) {
 		this.gp = gp;
+	}
+
+	public void setAction() {
+
+	}
+
+	public void update() {
+		setAction();
 	}
 
 	public void draw(Graphics2D g2) {
@@ -65,11 +74,9 @@ public class Entity {
 		BufferedImage image = null;
 
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
+			image = read(getClass().getResourceAsStream(imagePath + ".png"));
 			image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
-		}catch(IOException e) {
-			e.printStackTrace();
-		}catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 

@@ -24,7 +24,8 @@ public class KeyHandler implements KeyListener{
 		if(code == KeyEvent.VK_D) rightPressed = true;
 		if(code == KeyEvent.VK_Q) System.exit(0);
 		//GAME STATE
-		gp.gameState = (code == KeyEvent.VK_ESCAPE && gp.gameState == gp.playState)? gp.pauseState : gp.playState;
+		if(code == KeyEvent.VK_ESCAPE)
+			gp.gameState = (gp.gameState == gp.playState)? gp.pauseState : gp.playState;
 		
 		//Debug
 		checkDrawTime = (code == KeyEvent.VK_T && (!checkDrawTime));
