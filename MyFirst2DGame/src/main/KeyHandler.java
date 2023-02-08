@@ -22,14 +22,12 @@ public class KeyHandler implements KeyListener{
 		if(code == KeyEvent.VK_S) downPressed = true;
 		if(code == KeyEvent.VK_A) leftPressed = true;
 		if(code == KeyEvent.VK_D) rightPressed = true;
+		if(code == KeyEvent.VK_Q) System.exit(0);
 		//GAME STATE
-		if(code == KeyEvent.VK_ESCAPE) gp.gameState = (gp.gameState == gp.playState)? gp.pauseState : gp.playState;
+		gp.gameState = (code == KeyEvent.VK_ESCAPE && gp.gameState == gp.playState)? gp.pauseState : gp.playState;
 		
 		//Debug
-		if(code == KeyEvent.VK_T) {
-			if(!checkDrawTime) checkDrawTime = true;
-			else checkDrawTime = false;
-		}
+		checkDrawTime = (code == KeyEvent.VK_T && (!checkDrawTime));
 	}
 
 	public void keyReleased(KeyEvent e) {
