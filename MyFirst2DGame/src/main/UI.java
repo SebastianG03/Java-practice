@@ -48,6 +48,7 @@ public class UI {
 
 	public void drawPauseScreen() {
 
+		g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
 		String text = "PAUSED";
 		int x = getPauseTextPosition(text);
 		int y = gp.screenHight / 2;
@@ -57,6 +58,6 @@ public class UI {
 	}
 
 	public int getPauseTextPosition(String text) {
-		return gp.screenWidth / 2 - (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+		return (gp.screenWidth - (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth()) / 2;
 	}
 }
