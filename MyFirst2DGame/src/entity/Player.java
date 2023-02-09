@@ -62,10 +62,16 @@ public class Player extends Entity {
 			//Check Tile Collision
 			collisionOn = false;
 			gp.cChecker.checkTile(this);
+			gp.cChecker.checkObject(this, false);
+			gp.cChecker.checkPlayer(this);
 
 			//Check Object Collision
 			int objIndex = gp.cChecker.checkObject(this, true);
 			pickUpObject(objIndex);
+
+			//Check NPC Collision
+			int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+			interactNPC(npcIndex);
 
 			if(!collisionOn) {
 				switch (direction) {
@@ -84,6 +90,12 @@ public class Player extends Entity {
 				}
 				spriteCounter = 0;
 			}
+		}
+	}
+
+	private void interactNPC(int npcIndex) {
+		if(npcIndex != 999) {
+
 		}
 	}
 

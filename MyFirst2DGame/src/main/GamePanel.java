@@ -91,6 +91,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public void update() {
 		if(gameState == playState) {
 			player.update();
+			for(Entity entity : npc) if(entity != null) entity.update();
 		} else {
 			//@ToDo
 		}
