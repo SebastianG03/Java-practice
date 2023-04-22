@@ -3,9 +3,9 @@ package algoritmo_round_robin;
 public class Tarea {
     private String identificador;
     private int cedula;
-    private long taskTime;
+    private int taskTime;
 
-    public Tarea(String identificador, int cedula, long taskTime) {
+    public Tarea(String identificador, int cedula, int taskTime) {
         this.identificador = identificador;
         this.cedula = cedula;
         this.taskTime = taskTime;
@@ -27,16 +27,12 @@ public class Tarea {
         this.cedula = cedula;
     }
 
-    public long getTaskTime() {
+    public int getTaskTime() {
         return taskTime;
     }
 
-    public void setTaskTime(long taskTime) {
+    public void setTaskTime(int taskTime) {
         this.taskTime = taskTime;
-    }
-
-    public long calcularTiempoRestante(long quantum) {
-        return quantum - taskTime;
     }
 
     @Override
