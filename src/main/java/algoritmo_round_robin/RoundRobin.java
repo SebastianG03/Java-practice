@@ -18,6 +18,10 @@ public class RoundRobin {
         tareas.add(tarea);
     }
 
+    public List<Tarea> toList() {
+        return tareas.stream().toList();
+    }
+
     public String ejecutarAlgoritmo() {
         int quantum = 35;
         int tiempoTotal = 0;

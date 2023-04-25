@@ -39,6 +39,6 @@ public class Tarea {
     public String toString() {
         return "Proceso " + identificador
                 +"\nCédula: " + cedula +
-                "\nTiempo(ms)" + taskTime;
+                "\nTiempo: " + taskTime + "ms\n";
     }
 }
