@@ -47,11 +47,11 @@ public class RoundRobin {
                 tareas.poll();
             }
 
-            log.append("Tiempo ").append(tiempoTotal).append(": ")
+            /*log.append("Tiempo ").append(tiempoTotal).append(": ")
                     .append(proceso.getIdentificador())
                     .append(" se conmuta. Pendiente por ejecutar ")
                     .append(proceso.getTaskTime())
-                    .append(" ms.\n");
+                    .append(" ms.\n");*/
             conmutaciones++;
     }
 

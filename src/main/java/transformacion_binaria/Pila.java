@@ -1,17 +1,15 @@
 package transformacion_binaria;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.Stack;
 
-public class Cola {
+public class Pila {
 
-    private Queue<ToBinary> numberList;
+    private Stack<ToBinary> numberList;
     private Exception emptyListException = new Exception("La lista está vacía");
 
-    public Cola() {
-        numberList = new LinkedList<>();
+    public Pila() {
+        numberList = new Stack<>();
     }
 
     public void encolar(ToBinary binary) {
@@ -20,12 +18,16 @@ public class Cola {
 
     public ToBinary desencolar() throws Exception {
         if(numberList.isEmpty()) throw emptyListException;
-        return numberList.poll();
+        return numberList.pop();
     }
 
     public ToBinary elementoInicial() throws Exception {
         if (numberList.isEmpty()) throw emptyListException;
         return numberList.peek();
+    }
+
+    public void limpiarElementos() {
+        numberList.clear();
     }
 
     public String toBinaryString() {

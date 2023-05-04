@@ -14,7 +14,7 @@ public class ToBinary {
         if(binary > 0) binaryNumber.append("0");
         else if( binary < 0) binaryNumber.append("1");
 
-        return  binaryNumber.append(Long.toBinaryString(binary)).toString();
+        return  binaryNumber.append(Long.toBinaryString(Math.abs(binary))).toString();
     }
 
     @Override
