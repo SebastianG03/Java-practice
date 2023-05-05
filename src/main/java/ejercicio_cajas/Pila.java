@@ -78,7 +78,7 @@ public class Pila {
         return (data[0] == 0 && data[1] == 0)? notFound : String.format(found, data[0], data[1]);
     }
 
-    public Cajas getByKey(Long serialKey) {
+    public Cajas getByKey(Long serialKey) throws Exception {
         Cajas caja = null;
 
         if(exists(serialKey)) {
@@ -92,6 +92,8 @@ public class Pila {
                 caja = thirdPila.stream().filter(x -> x.getSerialKey().equals(serialKey)).findFirst().orElse(null);
                 thirdPila.remove(caja);
             }
+        } else {
+            throw new Exception("La caja con el número de serie " + serialKey + " no se encuentra en ninguna pila.");
         }
         return caja;
     }
