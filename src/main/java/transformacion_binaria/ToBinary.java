@@ -11,10 +11,24 @@ public class ToBinary {
 
     public String toBinaryNumber() {
         StringBuilder binaryNumber = new StringBuilder();
-        if(binary > 0) binaryNumber.append("0");
-        else if( binary < 0) binaryNumber.append("1");
+        int number = 0;
+        if(binary > 0) number = 0;
+        else if( binary < 0) number = 1;
 
-        return  binaryNumber.append(Long.toBinaryString(Math.abs(binary))).toString();
+        binary = Math.abs(binary);
+
+        do {
+            if(binary % 2 == 0) binaryNumber.append("0");
+            else if(binary % 2 == 1) binaryNumber.append("1");
+            else binaryNumber.append("1");
+            binary /= 2;
+        } while (binary >= 1);
+
+        binaryNumber.append(" ")
+                .append(number);
+        binaryNumber.reverse();
+
+        return  binaryNumber.toString();
     }
 
     @Override

@@ -33,11 +33,11 @@ public class Form {
         public void actionPerformed(ActionEvent e) {
             try {
                 number = Long.parseLong(txtBinaryField.getText());
+                pila.encolar(new ToBinary(number));
+                txtArea.setText(pila.toString());
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Ingrese un número válido");
             }
-            pila.encolar(new ToBinary(number));
-            txtArea.setText(pila.toString());
         }
     });
     btnToBinary.addActionListener(new ActionListener() {
