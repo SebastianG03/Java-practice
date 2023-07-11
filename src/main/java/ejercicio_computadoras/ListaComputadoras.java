@@ -37,36 +37,29 @@ public class ListaComputadoras {
         return computadoras.stream().anyMatch(x -> x.getId() == id);
     }
 
-    public String imprimir() {
-        StringBuilder sb = new StringBuilder();
-        String titles = "|Id\t|Marca|\tProcesador|\tCapacidadDeDiscoAncho|\tCapacidadDeDiscoLargo|" +
-                "\tPrecio|\tRam|\n";
-        String formatBody = "|%-5d\t|%-20s|\t%-20s|\t%-5d|\t%-5d|\t%-10.2f|\t%-5d|\n";
-        sb.append(titles);
+    public String[] imprimir() {
+        String[] str = new String[this.computadoras.size() + 1];
 
-        for (Computadora computadora : this.computadoras) {
-            sb.append(String.format(formatBody, computadora.getId(), computadora.getMarca(),
-                    computadora.getProcesador(), computadora.getCapacidadDeDiscoAncho(),
-                    computadora.getCapacidadDeDiscoLargo(), computadora.getPrecio(), computadora.getRam()));
+        str[0] = String.format("|%-5s|%-20s|%-20s|%-10s|%-10s|%-5s|\n",
+                "Id", "Marca", "Procesador", "Capacidad De Disco", "Precio", "RAM");
+
+        for(int i = 1; i < str.length; ++i) {
+            str[i] = this.computadoras.get(i - 1).toString();
         }
 
-        return sb.toString();
+        return str;
     }
 
-    public String imprimirPorMarca(String marca) {
+    public String[] imprimirPorMarca(String marca) {
         List<Computadora> computadoras = this.filtrarPorMarca(marca);
-        StringBuilder sb = new StringBuilder();
-        String titles = "|Id\t|Marca|\tProcesador|\tCapacidadDeDiscoAncho|\tCapacidadDeDiscoLargo|" +
-                "\tPrecio|\tRam|\n";
-        String formatBody = "|%-5d\t|%-20s|\t%-20s|\t%-5d|\t%-5d|\t%-10.2f|\t%-5d|\n";
-        sb.append(titles);
+        String[] str = new String[computadoras.size() + 1];
+        str[0] = String.format("|%-5s|%-20s|%-20s|%-10s|%-10s|%-5s|\n",
+                "Id", "Marca", "Procesador", "Capacidad De Disco", "Precio", "RAM");
 
-        for (Computadora computadora : computadoras) {
-            sb.append(String.format(formatBody, computadora.getId(), computadora.getMarca(),
-                    computadora.getProcesador(), computadora.getCapacidadDeDiscoAncho(),
-                    computadora.getCapacidadDeDiscoLargo(), computadora.getPrecio(), computadora.getRam()));
+        for(int i = 1; i < str.length; ++i) {
+            str[i] = computadoras.get(i - 1).toString();
         }
 
-        return sb.toString();
+        return str;
     }
 }

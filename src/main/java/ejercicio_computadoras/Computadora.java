@@ -47,4 +47,12 @@ public class Computadora {
     public int getRam() {
         return ram;
     }
+
+
+    public String toString() {
+        String formatBody = "|%-5d|%-20s|%-20s|%-5dx%-5d|%-10.2f|%-5d|\n";
+        return String.format(formatBody, getId(), getMarca(),
+                        getProcesador(), getCapacidadDeDiscoAncho(),
+                        getCapacidadDeDiscoLargo(), getPrecio(), getRam());
+    }
 }

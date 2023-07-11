@@ -68,12 +68,6 @@ public class Lista {
         return buscarBinario(valor);
     }
 
-    private int buscarLineal(Integer valor) {
-        int cont = 0;
-        while(cont < lista.size()) {
-
-        }
-    }
 
     @Override
     public String toString() {
